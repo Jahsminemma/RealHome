@@ -4,14 +4,35 @@ const testNext = document.querySelector(".right")
 const testPrev = document.querySelector(".left")
 const testSlide = document.querySelector(".carousel .slide").children
 const slider = document.querySelector(".hero-slide-item").children;
-let index = 0
+let listingContainer = document.querySelector(".property-container")
+let scroller = document.querySelector(".listing-slide");
+let scrollNext = document.querySelector(".arrow-right");
+let scrollPrev = document.querySelector(".arrow-left")
+itemWidth = document.querySelector(".property-details").clientWidth
 let totalSlide = slider.length;
-let totalTestSlide = testSlide.length
+let totalTestSlide = testSlide.length;
+let index = 0;
 const duration = 6000;
 
-testNext.addEventListener("click", ()=>{
-    slide("next")
-})
+let scrollToNext = ()=>{
+    if(scroller.scrollLeft < (scroller.scrollWidth)){
+    scroller.scrollBy({left:itemWidth, top:0, behavior:'smooth'})
+    }else{
+        scroller.scrollTo({left:0, top:0, behavior: 'smooth'})
+    }
+}
+let scrollToPrev = ()=>{
+    if(scroller.scrollWidth == 0){
+    scroller.scrollTo({left:scroller.scrollWidth, top:0, behavior:'smooth'})
+
+    }else{
+        //scroller.scrollBy({left:-itemWidth, top:0, behavior: 'smooth'})
+    }
+}
+
+scrollNext.addEventListener("click", scrollToNext)
+scrollPrev.addEventListener("click", scrollToPrev)
+
 
 testPrev.addEventListener("click", ()=>{
     slide("prev")

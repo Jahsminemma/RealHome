@@ -141,20 +141,34 @@ header {
 .marketing button a {
     color: whitesmoke;
 }
-.nav span{
+.nav .bars{
     display: none;
 }
 
 /*mobile header starts*/
 @media (max-width:900px){
   
-    .nav span{
+    .nav .bars{
         width: 35px;
         border-radius: 3px;
         height: 4px;
         background-color: rgb(228, 222, 222);
         margin: 6px;
-        display:block;
+        display: block;
+        transition: all .4s ease-in;
+    }
+    .nav .active .bar1{
+        
+        transform: translatey(10px) rotate(45deg);
+        background-color: #202020;
+    }
+    .nav .active .bar2{
+        opacity:0;
+    }
+    .nav .active .bar3{
+        transform: translateY(-10px)
+        rotate(-45deg);
+        background-color: #202020;
     }
     .logo h2{
         margin-left: -10%;
@@ -164,14 +178,17 @@ header {
         position:absolute;
         right: 0;
         top: 0;
-        margin-top:10px ;
-        padding-right:px;
-        z-index: 4;
+        margin-top:20px ;
+        z-index: 99999;
+    }
+    main.active{
+        margin-right: 200px;
+        transition: all .3s ease;
+        filter: blur(3px);
     }
     
-    .nav-content {
+    .nav-content  {
         transform: translateX(100%);
-        transition: 0s;
         width: 220px;
         position: fixed;
         right:0 ;
@@ -182,7 +199,13 @@ header {
         background-color: whitesmoke;
         height: 100vh;
         z-index: 9999;
+        transition: all .3s ease ;
+        
     }
+    .nav-content.active{
+        transform: translateX(0%);
+    }
+   
     .nav-content .marketing{
         margin: 0;
         padding-left: 50px;
@@ -199,6 +222,7 @@ header {
         color: black;
     }
 }
+
 /*mobile header end*/
 /*end header syles*/
 
@@ -689,4 +713,5 @@ footer hr{
     color:rgb(20, 184, 47);
     font-size: 14px;
 }
-/*footer ends*?
+
+/*footer ends*/

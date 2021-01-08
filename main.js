@@ -8,11 +8,20 @@ let listingContainer = document.querySelector(".property-container")
 let scroller = document.querySelector(".listing-slide");
 let scrollNext = document.querySelector(".arrow-right");
 let scrollPrev = document.querySelector(".arrow-left")
-itemWidth = document.querySelector(".property-details").clientWidth
+let itemWidth = document.querySelector(".property-details").clientWidth
+let navBtn = document.querySelector(".nav .bar");
+let navContent = document.querySelector(".nav-content");
 let totalSlide = slider.length;
 let totalTestSlide = testSlide.length;
 let index = 0;
 const duration = 6000;
+
+navBtn.addEventListener("click", ()=>{
+    navBtn.classList.toggle("active")
+   navContent.classList.toggle("active");
+   let main = document.querySelector("main")
+   main.classList.toggle("active")
+})
 
 let scrollToNext = ()=>{
     if(scroller.scrollLeft < (scroller.scrollWidth)){

@@ -675,23 +675,30 @@ footer p.large-paragraph{
     justify-content: center;
 }
 footer input{
-    padding: 17px;
+    padding: 20px;
     border: none;
 }
-footer input[type=button]{
-    background-color:rgb(20, 184, 47);
-    margin-left: -5px;
-    color: whitesmoke;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
+
+footer .newsletter button{
+ background-color: #0bb60b;
+ border: none;
+ padding: 20px;
+ margin-left:-4px;
+ border-top-right-radius: 10px;
+ border-bottom-right-radius: 10px;
+ color: whitesmoke;
 }
-@media (max-width:317px){
-    footer input[type=button]{
-        position: relative;
-        right: -100px;
-        top: -49px;
+@media  (max-width:330px){
+    footer input{
+        padding: 8px;
+        
     }
+    footer .newsletter button{
+        padding: 8px;
+    }
+
 }
+
 footer ul li{
     display: inline;
     position: relative;

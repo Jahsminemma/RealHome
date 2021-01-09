@@ -16,8 +16,6 @@ let totalSlide = slider.length;
 let totalTestSlide = testSlide.length;
 let index = 0;
 const duration = 6000;
-console.log(item.scrollWidth)
-
 navBtn.addEventListener("click", ()=>{
     navBtn.classList.toggle("active")
    navContent.classList.toggle("active");
@@ -49,6 +47,9 @@ scrollPrev.addEventListener("click", scrollToPrev)
 testPrev.addEventListener("click", ()=>{
     slide("prev")
 });
+testNext.addEventListener("click", ()=>{
+    slide("next")
+})
 
 prev.addEventListener("click", ()=>{
     slide("prev")

@@ -8,13 +8,15 @@ let listingContainer = document.querySelector(".property-container")
 let scroller = document.querySelector(".listing-slide");
 let scrollNext = document.querySelector(".arrow-right");
 let scrollPrev = document.querySelector(".arrow-left")
-let itemWidth = document.querySelector(".property-details").clientWidth
+let item = document.querySelector(".property-details");
+itemWidth = item.clientWidth
 let navBtn = document.querySelector(".nav .bar");
 let navContent = document.querySelector(".nav-content");
 let totalSlide = slider.length;
 let totalTestSlide = testSlide.length;
 let index = 0;
 const duration = 6000;
+console.log(item.scrollWidth)
 
 navBtn.addEventListener("click", ()=>{
     navBtn.classList.toggle("active")
@@ -24,24 +26,25 @@ navBtn.addEventListener("click", ()=>{
 })
 
 let scrollToNext = ()=>{
-    if(scroller.scrollLeft < (scroller.scrollWidth)){
-    scroller.scrollBy({left:itemWidth, top:0, behavior:'smooth'})
+    let scrollLeftMax = scroller.scrollWidth - scroller.clientWidth;
+    if(scroller.scrollLeft == scrollLeftMax){
+    scroller.scrollTo({left:0, top:0, behavior: 'smooth'})
     }else{
-        scroller.scrollTo({left:0, top:0, behavior: 'smooth'})
+        scroller.scrollBy({left:itemWidth, top:0, behavior:'smooth'});
     }
 }
+
 let scrollToPrev = ()=>{
-    if(scroller.scrollWidth == 0){
+    if(scroller.scrollLeft == 0){
     scroller.scrollTo({left:scroller.scrollWidth, top:0, behavior:'smooth'})
 
     }else{
-        //scroller.scrollBy({left:-itemWidth, top:0, behavior: 'smooth'})
+        scroller.scrollBy({left:-itemWidth, top:0, behavior: 'smooth'})
     }
 }
 
 scrollNext.addEventListener("click", scrollToNext)
 scrollPrev.addEventListener("click", scrollToPrev)
-
 
 testPrev.addEventListener("click", ()=>{
     slide("prev")
@@ -110,11 +113,50 @@ prev.addEventListener("click", ()=>{
 
    let autoSlide =()=>{
     slide("next")
+    scrollToNext()
    }
    let timer = setInterval(autoSlide, duration)
    progress()
    
    
+
+//intersection observer for onscroll animation
+
+const scrollSlider = document.querySelectorAll(".slide-up")
+const slideIn = document.querySelectorAll(".slide-in")
+const slideFromRight = document.querySelectorAll(".slide-right")
+
+options= {
+	threshold : 0,
+	rootMargin: "80px 0px 0px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll)=>{
+entries.forEach(entry =>{
+	if(!entry.isIntersecting){
+		return;
+	}
+	else{
+		entry.target.classList.add('show')
+		entry.target.classList.add('show2')
+		entry.target.classList.add('show3')
+		appearOnScroll.unobserve(entry.target)
+	}
+})
+}, options);
+ 
+scrollSlider.forEach(slide=>{
+	appearOnScroll.observe(slide)
+})
+
+slideIn.forEach(slidein =>{
+	appearOnScroll.observe(slidein)
+})
+
+slideFromRight.forEach(slideRight =>{
+	appearOnScroll.observe(slideRight)
+});
+/*appear on scroll ends*/
 
 
 

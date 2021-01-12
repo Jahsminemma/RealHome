@@ -17,20 +17,6 @@ let index = 0;
 const duration = 6000;
 
 
-let setSplitScroll = ()=>{
-    const controller  = new ScrollMagic.Controller();
-        new ScrollMagic.Scene({
-        triggerElement: '.agents .img-snap',
-        triggerHook: 0,
-    })
-    .addIndicators()
-    .setPin('#agents .img-snap')
-    .addTo(controller)
-}
-setSplitScroll()
-
-
-
 
 navBtn.addEventListener("click", ()=>{
     navBtn.classList.toggle("active")

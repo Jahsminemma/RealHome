@@ -4,7 +4,6 @@ let setSplitScroll = ()=>{
         triggerElement: '.agents .img-snap',
         triggerHook: 0,
     })
-    .addIndicators()
     .setPin('#agents .img-snap')
     .addTo(controller);
     let scene2 = new ScrollMagic.Scene({
@@ -13,7 +12,6 @@ let setSplitScroll = ()=>{
         triggerHook: 0.3
     })
     .setPin('.agents .col-left')
-    .addIndicators()
     .addTo(controller);
     
     controller.addScene([

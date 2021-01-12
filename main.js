@@ -29,8 +29,13 @@ agentDetails.forEach(agentDetail=>{
     agentDetail.addEventListener("touchstart",()=>{
         agentDetail.style.opacity ="1"
     })
+
     agentDetail.addEventListener("touchend", ()=>{
         agentDetail.style.opacity ="0"
+    })
+
+    agentDetail.addEventListener("touchmove", ()=>{
+        agentDetail.style.opacity ="1"
     })
 })
 

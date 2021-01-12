@@ -795,7 +795,7 @@ footer hr{
         display: absolute;
         animation: slideup 3s ease-in infinite;
         position: absolute;
-        margin-top: 10px;
+        margin-top: 10pxgit;
     }
     @keyframes slideup{
         0%{transform: translateY(8%);}
@@ -866,6 +866,7 @@ footer hr{
     .agents .flex{
         display: flex;
         flex-direction: column;
+        margin-bottom: 0%;
     }
     .agents .img-snap{
         display: none;
@@ -883,30 +884,33 @@ footer hr{
 }
 .agents .flex .img{
     position: absolute;
-    margin-bottom: 150px;
+    margin: 0;
 }
 .agents .col-right .detail{
     position: relative;
-    background-color: blck;
-    padding:10px 10px 30px 0px;
+    width: 200px;
+    height: 190px;
+    padding: 0;
+    margin-top: 110px;
     opacity: 0;
     background-color: #030c2b;
     transition: all 8s ease forwards;
+    bottom: 0;
     
 }
 .agents .col-right .detail li{
     color: whitesmoke;
-}
-
-.agents .col-right .detail.active{
-    visibility: visible;
-}
-.agents .col-right .detail:hover{
-    background-color: rgb(1, 20, 31);
-}
-.agents .col-right .detail ul li{
-    font-size: 17px;
+    font-size: 15px;
 }   
+.agents .flex .contacts h3{
+    color: whitesmoke;
+}
+.agents .flex .contacts{
+    margin-top: 0%;
+    position: relative;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+}
 }
 
 .market .flex{

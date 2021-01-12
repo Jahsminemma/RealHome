@@ -2,20 +2,36 @@ const next = document.querySelector(".controls .next")
 const prev = document.querySelector(".controls .prev")
 const testNext = document.querySelector(".right")
 const testPrev = document.querySelector(".left")
-const testSlide = document.querySelector(".carousel .slide").children
-const slider = document.querySelector(".hero-slide-item").children;
+const testSlider = document.querySelector(".carousel .slide")
+const sliders = document.querySelector(".hero-slide-item");
 let listingContainer = document.querySelector(".property-container")
 let scroller = document.querySelector(".listing-slide");
 let scrollNext = document.querySelector(".arrow-right");
 let scrollPrev = document.querySelector(".arrow-left")
 let item = document.querySelector(".property-details");
-itemWidth = item.clientWidth
 let navBtn = document.querySelector(".nav .bar");
 let navContent = document.querySelector(".nav-content");
-let totalSlide = slider.length;
-let totalTestSlide = testSlide.length;
+let agentDetails = document.querySelectorAll('.agents .detail');
+
 let index = 0;
 const duration = 6000;
+
+
+let setSplitScroll = ()=>{
+    const controller  = new ScrollMagic.Controller();
+        new ScrollMagic.Scene({
+        triggerElement: '.agents .img-snap',
+        triggerHook: 0,
+    })
+    .addIndicators()
+    .setPin('#agents .img-snap')
+    .addTo(controller)
+}
+setSplitScroll()
+
+
+
+
 navBtn.addEventListener("click", ()=>{
     navBtn.classList.toggle("active")
    navContent.classList.toggle("active");
@@ -23,12 +39,63 @@ navBtn.addEventListener("click", ()=>{
    main.classList.toggle("active")
 })
 
+agentDetails.forEach(agentDetail=>{
+    agentDetail.addEventListener("touchstart",()=>{
+        agentDetail.style.opacity ="1"
+    })
+    agentDetail.addEventListener("touchend", ()=>{
+        agentDetail.style.opacity ="0"
+    })
+})
+
+
+
+
+//intersection observer for onscroll animation
+
+const scrollSlider = document.querySelectorAll(".slide-up")
+const slideIn = document.querySelectorAll(".slide-in")
+const slideFromRight = document.querySelectorAll(".slide-right")
+
+options= {
+	threshold : 0,
+	rootMargin: "80px 0px 0px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver((entries, appearOnScroll)=>{
+entries.forEach(entry =>{
+	if(!entry.isIntersecting){
+		return;
+	}
+	else{
+		entry.target.classList.add('show')
+		entry.target.classList.add('show2')
+		entry.target.classList.add('show3')
+		appearOnScroll.unobserve(entry.target)
+	}
+})
+}, options);
+ 
+scrollSlider.forEach(slide=>{
+	appearOnScroll.observe(slide)
+})
+
+slideIn.forEach(slidein =>{
+	appearOnScroll.observe(slidein)
+})
+
+slideFromRight.forEach(slideRight =>{
+	appearOnScroll.observe(slideRight)
+});
+/*appear on scroll ends*/
+
+
 let scrollToNext = ()=>{
     let scrollLeftMax = scroller.scrollWidth - scroller.clientWidth;
     if(scroller.scrollLeft == scrollLeftMax){
     scroller.scrollTo({left:0, top:0, behavior: 'smooth'})
     }else{
-        scroller.scrollBy({left:itemWidth, top:0, behavior:'smooth'});
+        scroller.scrollBy({left: item.clientWidth, top:0, behavior:'smooth'});
     }
 }
 
@@ -37,7 +104,7 @@ let scrollToPrev = ()=>{
     scroller.scrollTo({left:scroller.scrollWidth, top:0, behavior:'smooth'})
 
     }else{
-        scroller.scrollBy({left:-itemWidth, top:0, behavior: 'smooth'})
+        scroller.scrollBy({left:- item.clientWidth, top:0, behavior: 'smooth'})
     }
 }
 
@@ -60,9 +127,14 @@ prev.addEventListener("click", ()=>{
    })
    
    let slide = (direction) => {
+       const testSlide = testSlider.children;
+       const slider = sliders.children;
+       let totalSlide = slider.length;
+let totalTestSlide = testSlide.length;
+
        progress()
        if(direction =="next"){
-       if(index == totalSlide-1 && index== totalTestSlide - 1){
+       if(index == totalSlide-1 && index == totalTestSlide - 1){
            index = 0
        } else{
            index++
@@ -117,50 +189,5 @@ prev.addEventListener("click", ()=>{
     scrollToNext()
    }
    let timer = setInterval(autoSlide, duration)
-   progress()
-   
-   
+   progress();
 
-//intersection observer for onscroll animation
-
-const scrollSlider = document.querySelectorAll(".slide-up")
-const slideIn = document.querySelectorAll(".slide-in")
-const slideFromRight = document.querySelectorAll(".slide-right")
-
-options= {
-	threshold : 0,
-	rootMargin: "80px 0px 0px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver((entries, appearOnScroll)=>{
-entries.forEach(entry =>{
-	if(!entry.isIntersecting){
-		return;
-	}
-	else{
-		entry.target.classList.add('show')
-		entry.target.classList.add('show2')
-		entry.target.classList.add('show3')
-		appearOnScroll.unobserve(entry.target)
-	}
-})
-}, options);
- 
-scrollSlider.forEach(slide=>{
-	appearOnScroll.observe(slide)
-})
-
-slideIn.forEach(slidein =>{
-	appearOnScroll.observe(slidein)
-})
-
-slideFromRight.forEach(slideRight =>{
-	appearOnScroll.observe(slideRight)
-});
-/*appear on scroll ends*/
-
-
-
-
-
- 

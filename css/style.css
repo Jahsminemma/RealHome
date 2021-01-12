@@ -602,6 +602,8 @@ footer{
     background: #030c2b;
     text-align: center;
     overflow: hidden;
+    position: relative;
+    z-index: 88888;
 }
 .container .testimonial{
     padding-top:40px ;
@@ -617,6 +619,7 @@ footer{
 @media (max-width:600px){
     .testimonial .slider-container{
         width: 100%;
+        z-index: 333333;
     }
 
 }
@@ -750,3 +753,172 @@ footer hr{
    opacity: 1;
    transform: translateX(0px);
     }
+
+    /*agent page style*/
+    .hero-slide-container .hero-slide-item .overlay{
+        width: 100%;
+        height: 44.5vh;
+        background-color: black;
+        opacity: 0.7;
+    }
+
+    .hero-slide-container .hero-slide-item .caption{
+        display: flex;
+        flex-grow: 1;
+        z-index: 10;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+    .hero-slide-container .hero-slide-item .caption .text{
+        text-align: center;
+    }
+
+    .hero-slide-container .hero-slide-item .caption h2{
+        font-size: 2.5rem;
+        color: #0bb60b; 
+        animation: slideIn .7s ease-in forwards;
+    }
+
+    .hero-slide-container .hero-slide-item .caption p{
+        font-size: 1.4rem;
+        color: #f5f5f5;  
+        animation: slideIn .7s ease-in forwards;
+        opacity: 0;
+        animation-delay: .6s;
+    }
+
+    .hero-slide-item .item .caption a i{
+        color: #0bb60b;
+        font-size: 3rem;
+        display: absolute;
+        animation: slideup 3s ease-in infinite;
+        position: absolute;
+        bottom: 10px;
+    }
+    @keyframes slideup{
+        0%{transform: translateY(8%);}
+        100%{transform: translateY(-14%);}
+    }
+    @keyframes slideIn{
+        0%{transform: translateX(-50px); opacity: 0;}
+        100%{transform: translateX(0px); opacity: 1;}
+    }
+
+
+    .agents .container{
+        padding-top: 3rem;
+        background-color: #f8fafa;
+    }
+
+    .agents .col-left{
+        width: 50%;
+        margin: 0!important;
+       
+    }
+    .agents .img-snap{
+        padding-top: 30px ;
+        z-index:233;
+        height: 300px;
+        width: 500px;
+        
+
+    }
+    .agents .col-left h4{
+        font-size: 2rem;
+    }
+    .agents .col-right{
+        width: 66.66%;
+        position: relative;
+    }
+    .agent-details .flex{
+        margin-bottom: 30px;
+    }
+    .agent-details .flex img{
+        width: 250px;
+        height: 230px;
+    }
+    .agent-details ul li {
+        padding-bottom: 20px;
+        color: #3d4952;
+        font-size: 1.3rem;
+        font-family: 'montserrat',sans-serif;
+        margin-top: 5px;
+        font-weight: 500;
+    }
+    .agent-details h4, #agent-name{
+        color: #0bb60b;
+        font-weight: 600;
+    }
+    .agents .flex .contacts {
+        margin-top: 20px;
+    }
+    .agents .flex .contacts h3{
+        color: #00142b;
+    }
+    .agent-details .flex h4{
+        font-size: 20px;
+    }
+
+
+/*mobile device*/    
+@media (max-width:915px){
+    .agents .flex{
+        display: flex;
+        flex-direction: column;
+    }
+    .agents .img-snap{
+        width: 100%;
+        height: 30%;
+    }
+.agents .col-left{
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+.agents .col-right{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.agents .flex .img{
+    position: absolute;
+    margin-bottom: 150px;
+}
+.agents .col-right .detail{
+    position: relative;
+    background-color: blck;
+    padding:10px 10px 30px 0px;
+    opacity: 0;
+    background-color: #030c2b;
+    transition: all 8s ease forwards;
+    
+}
+.agents .col-right .detail li{
+    color: whitesmoke;
+}
+
+.agents .col-right .detail.active{
+    visibility: visible;
+}
+.agents .col-right .detail:hover{
+    background-color: rgb(1, 20, 31);
+}
+.agents .col-right .detail ul li{
+    font-size: 17px;
+}   
+}
+
+.market .flex{
+    width: 100%;
+}
+.market .flex .col-6{
+    margin: 30px;
+}
+.market .flex .col-6 img{
+    height: 100%;
+}
+
+   /*agent page style ends*/

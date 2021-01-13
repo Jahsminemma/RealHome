@@ -72,6 +72,7 @@ p.large-paragraph{
     }
     .flex{
         display: block;
+        justify-content: center;
     }
     .flex img{
         width: 100%;
@@ -414,9 +415,13 @@ header {
     scroll-snap-type: x mandatory;
 
 }
-.listing-slide::-webkit-scrollbar{
-    display: none;
+@media (min-width:769px){
+    .listing-slide{
+        overflow: hidden;
+    }
 }
+
+
 .listing-slide .property-details{
     width:250px;
     margin: 20px;
@@ -924,3 +929,88 @@ footer hr{
 }
 
    /*agent page style ends*/
+
+   /* properties style start*/
+
+    .hero-slide-item .property-hero .caption h2{
+        color: whitesmoke;
+        font-size: 2.5rem;
+    }
+    .hero-slide-item .property-hero .caption p{
+        font-size: 1.5rem;
+        color: rgb(0, 255, 149);
+    }
+
+    /*products card*/
+    .new-listing .title h2{
+        margin-top:4rem;
+        font-family: 'montserrat', sans-serif;
+
+    }
+    .new-listing .title p{
+        color: #042ad4;
+    }
+   .new-listing .grid{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        box-sizing: border-box;
+        grid-gap: 10px;
+        width: 100%;
+    }
+    @media (max-width:1000px){
+        .new-listing .grid{
+            overflow-x: scroll;
+            scroll-snap-type:x mandatory;
+            scrollbar-color: #05e951;
+        }
+
+        .new-listing .product-card{
+            scroll-snap-align: center;
+        }
+    }
+    .product-card .card-item img{
+        height: 200px;
+        width: 100%;
+    }
+    .product-listing .product-card { 
+        position: relative;
+        width: 230px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 6px rgb(145, 141, 141);
+        margin-bottom: 50px;
+    }
+  
+    .product-card .card-item .price-tag{
+        position: relative;
+        color: whitesmoke;
+        background-color: #0bb60b;
+        position: absolute;
+        top: 56.5%;
+        padding: 2px;
+        left: 0;
+    }
+    .product-card .card-item .price-tag h3,
+    .product-card .card-item .price-tag p{
+        font-size: 14px;
+        margin: 5px;
+    }
+    .product-listing .product-card .home-description{
+        margin-left: 10px;
+    }
+    .product-listing .product-card .home-description li{
+        display: inline;
+        margin-left: 15px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .product-listing .product-card .home-description ul{
+        padding: 0;
+    }
+    .product-listing .product-card .home-description address{
+        font-size: 15px;
+    }
+ 
+
+    /*products card style end*/
+
+      /* properties style ends*/

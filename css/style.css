@@ -840,8 +840,8 @@ footer hr{
         margin-bottom: 20px;
     }
     .agent-details .flex img{
-        width: 200px;
-        height: 190px;
+        width: 230px;
+        height: 200px;
     }
     .agent-details ul li {
         padding-bottom: 20px;
@@ -893,7 +893,7 @@ footer hr{
 }
 .agents .col-right .detail{
     position: relative;
-    width: 200px;
+    width: 230px;
     height: 190px;
     padding: 0;
     margin-top: 110px;

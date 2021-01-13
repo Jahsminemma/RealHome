@@ -20,7 +20,6 @@ const duration = 6000;
 
 navBtn.addEventListener("click", ()=>{
     navBtn.classList.toggle("active")
-    navBtn.style.position ="fixed"
    navContent.classList.toggle("active");
    let main = document.querySelector("main")
    main.classList.toggle("active")

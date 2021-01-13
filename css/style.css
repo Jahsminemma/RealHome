@@ -162,14 +162,16 @@ header {
         
         transform: translatey(10px) rotate(45deg);
         background-color: #202020;
+        position: fixed;
     }
     .nav .active .bar2{
         opacity:0;
     }
     .nav .active .bar3{
-        transform: translateY(-10px)
+        transform: translateY(-6px)
         rotate(-45deg);
         background-color: #202020;
+        position: fixed;
     }
     .logo h2{
         margin-left: -10%;

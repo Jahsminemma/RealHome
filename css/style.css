@@ -482,6 +482,9 @@ header {
   .couples-home .flex {
     display: flex;
   }
+  .couples-home .home-description {
+    padding-left: 6rem;
+  }
 }
 .couples-home .home-description {
   display: grid;
